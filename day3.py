@@ -2,17 +2,9 @@ def bits_to_decimal(bits):
     return int(''.join(map(str, bits)), 2)
 
 
-def sum_up_bits(bits):
-    return sum(map(int, bits))
-
-
-def bit_sum_to_common_bit(bit_sum, length):
-    return int(bit_sum * 2 >= length)
-
-
 def most_common_bit_in_pos(nums, pos):
-    bit_sum = sum_up_bits(num[pos] for num in nums)
-    return bit_sum_to_common_bit(bit_sum, len(nums))
+    bit_sum = sum(int(num[pos]) for num in nums)
+    return int(2 * bit_sum >= len(nums))
 
 
 def least_common_bit_in_pos(nums, pos):
