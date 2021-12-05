@@ -33,28 +33,13 @@ class Game:
                 winning_boards.add(board)
         return new_number, winning_boards
     
-    def play_to_first_win(self):
-        while True:
-            new_number, winning_boards = self.play_one_round()
-            if winning_boards:
-                board = winning_boards.pop()
-                return new_number * board.sum_of_unmarked(self.drawn_numbers)
-
-    def play_to_last_board(self):
+    def play(self, stop_on_first_win):
         while True:
             new_number, winning_boards = self.play_one_round()
             self.boards -= winning_boards
-            if not self.boards:
+            if stop_on_first_win and winning_boards or not self.boards:
                 board = winning_boards.pop()
                 return new_number * board.sum_of_unmarked(self.drawn_numbers)
-
-        
-def day4a(order, boards):
-    return Game(order, boards).play_to_first_win()
-
-
-def day4b(order, boards):
-    return Game(order, boards).play_to_last_board()
 
 
 def read_input(filename):
@@ -75,6 +60,6 @@ def read_input(filename):
 
 
 if __name__ == "__main__":
-    bingo_numbers, boards = read_input('day4/day4.txt')
-    print(f'Day 4a: {day4a(bingo_numbers, boards)}')
-    print(f'Day 4b: {day4b(bingo_numbers, boards)}')
+    numbers, boards = read_input('day4/day4.txt')
+    print(f'Day 4a: {Game(numbers, boards).play(stop_on_first_win=True)=}')
+    print(f'Day 4b: {Game(numbers, boards).play(stop_on_first_win=False)=}')
