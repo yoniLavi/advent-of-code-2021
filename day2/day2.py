@@ -26,6 +26,7 @@ def day2b(commands):
     return depth * horizontal
 
 
-my_input = [(s[0], int(s[1])) for s in map(str.split, open('day2.txt'))]
-print(day2a(my_input))
-print(day2b(my_input))
+if __name__ == "__main__":
+    my_input = [(s[0], int(s[1])) for s in map(str.split, open('day2/day2.txt'))]
+    print(f'Day 2a: {day2a(my_input)}')
+    print(f'Day 2b: {day2b(my_input)}')

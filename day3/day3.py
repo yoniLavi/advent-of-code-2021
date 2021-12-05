@@ -32,6 +32,7 @@ def day3b(input_strings):
     return oxygen_generator * co2_scrubber
 
 
-my_input = list(map(str.strip, open('day3.txt')))
-print(day3a(my_input))
-print(day3b(my_input))
+if __name__ == '__main__':
+    my_input = list(map(str.strip, open('day3/day3.txt')))
+    print(f'Day 3a: {day3a(my_input)}')
+    print(f'Day 3b: {day3b(my_input)}')
