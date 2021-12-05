@@ -27,10 +27,8 @@ class Game:
 
     def play_one_round(self):
         new_number = self.draw_one()
-        winning_boards = set()
-        for board in self.boards:
-            if board.bingo(self.drawn_numbers):
-                winning_boards.add(board)
+        winning_boards = {board for board in self.boards
+                          if board.bingo(self.drawn_numbers)}
         return new_number, winning_boards
     
     def play(self, stop_on_first_win):
