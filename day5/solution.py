@@ -29,5 +29,5 @@ def read_input(filename, accept_all=False):
 
 
 if __name__ == '__main__':
-    print('Day 5a:', count_overlaps(read_input("day5/day5.txt")))
-    print('Day 5b:', count_overlaps(read_input("day5/day5.txt", accept_all=True)))
+    print('Part A:', count_overlaps(read_input("day5/input.txt")))
+    print('Part B:', count_overlaps(read_input("day5/input.txt", accept_all=True)))

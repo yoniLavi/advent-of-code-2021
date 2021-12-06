@@ -27,6 +27,6 @@ def day2b(commands):
 
 
 if __name__ == "__main__":
-    my_input = [(s[0], int(s[1])) for s in map(str.split, open('day2/day2.txt'))]
-    print(f'Day 2a: {day2a(my_input)}')
-    print(f'Day 2b: {day2b(my_input)}')
+    my_input = [(s[0], int(s[1])) for s in map(str.split, open('day2/input.txt'))]
+    print(f'Part A: {day2a(my_input)}')
+    print(f'Part B: {day2b(my_input)}')

@@ -11,6 +11,6 @@ def simulate(input_ages, simulation_days):
 
 
 if __name__ == '__main__':
-    my_input = list(map(int, open('day6/day6.txt').read().strip().split(',')))
-    print(f'Day 6a: {simulate(my_input, 80)}')
-    print(f'Day 6b: {simulate(my_input, 256)}')
+    my_input = list(map(int, open('day6/input.txt').read().strip().split(',')))
+    print(f'Part A: {simulate(my_input, 80)}')
+    print(f'Part B: {simulate(my_input, 256)}')

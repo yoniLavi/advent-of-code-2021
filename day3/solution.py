@@ -33,6 +33,6 @@ def day3b(input_strings):
 
 
 if __name__ == '__main__':
-    my_input = list(map(str.strip, open('day3/day3.txt')))
-    print(f'Day 3a: {day3a(my_input)}')
-    print(f'Day 3b: {day3b(my_input)}')
+    my_input = list(map(str.strip, open('day3/input.txt')))
+    print(f'Part A: {day3a(my_input)}')
+    print(f'Part B: {day3b(my_input)}')

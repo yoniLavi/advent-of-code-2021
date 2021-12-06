@@ -58,6 +58,6 @@ def read_input(filename):
 
 
 if __name__ == "__main__":
-    numbers, boards = read_input('day4/day4.txt')
-    print(f'Day 4a: {Game(numbers, boards).play(stop_on_first_win=True)=}')
-    print(f'Day 4b: {Game(numbers, boards).play(stop_on_first_win=False)=}')
+    numbers, boards = read_input('day4/input.txt')
+    print(f'Part A: {Game(numbers, boards).play(stop_on_first_win=True)=}')
+    print(f'Part B: {Game(numbers, boards).play(stop_on_first_win=False)=}')
