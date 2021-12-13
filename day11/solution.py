@@ -2,10 +2,6 @@ from itertools import count
 import numpy as np
 
 
-def neighbour_indices(r, c):
-    return np.s_[max(0, r-1):r+2, max(0, c-1):c+2]
-
-
 def simulate_one_step(grid):
     grid += 1
     
@@ -17,7 +13,7 @@ def simulate_one_step(grid):
                 if grid[r, c] > 9 and not flashes[r, c]:
                     flashes[r, c] = True
                     new_flashes = True
-                    grid[neighbour_indices(r, c)] += 1
+                    grid[max(0, r-1):r+2, max(0, c-1):c+2] += 1
         if not new_flashes:
             break
 
@@ -25,14 +21,14 @@ def simulate_one_step(grid):
     return sum(flashes.flat)
 
 
-def day11a(grid, days):
-    return sum(simulate_one_step(grid) for _ in range(days))
+def day11a(grid, steps):
+    return sum(simulate_one_step(grid) for _ in range(steps))
 
 
 def day11b(grid):
-    for day in count(1):
+    for step in count(1):
         if simulate_one_step(grid) == grid.size:
-            return day
+            return step
 
 
 if __name__ == '__main__':
