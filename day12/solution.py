@@ -12,22 +12,20 @@ def valid_path(path, extra_visits=0):
                if node.islower()) <= extra_visits
 
 
-def dfs_count_paths(edges, extra_visits=2):
-    path_count = 0
-    dfs_stack = [t for t in edges if t[0] == 'start']
-    while dfs_stack:
-        partial_path = dfs_stack.pop()
-        for next_node in (t[1] for t in edges if t[0] == partial_path[-1]):
-            path = partial_path + (next_node,)
-            if next_node == 'end':
-                path_count += 1
-            elif valid_path(path, extra_visits):
-                dfs_stack.append(path)
-    return path_count
+def count_paths(edges, path, extra_visits=2):
+    if not valid_path(path, extra_visits):
+        return 0
+    
+    if path[-1] == 'end':
+        return 1
+    
+    return sum(count_paths(edges, path + (dest,), extra_visits)
+                           for source, dest in edges if source == path[-1])
 
 
 if __name__ == '__main__':
     edges = process_edges([tuple(line.strip().split('-'))
                            for line in open("day12/input.txt")])
-    print(f'Part A: {dfs_count_paths(edges, extra_visits=0)=}')
-    print(f'Part B: {dfs_count_paths(edges, extra_visits=1)=}')
+                           
+    print(f'Part A: {count_paths(edges, ("start",), extra_visits=0)}')
+    print(f'Part B: {count_paths(edges, ("start",), extra_visits=1)}')
