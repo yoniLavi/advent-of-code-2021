@@ -33,5 +33,5 @@ def day11b(grid):
 
 if __name__ == '__main__':
     grid = np.asarray([list(map(int, line.strip())) for line in open('day11/input.txt')])
-    print(day11a(grid.copy(), 100))
-    print(day11b(grid))
+    print(f'Part A: {day11a(grid.copy(), 100)}')
+    print(f'Part B: {day11b(grid)}')
